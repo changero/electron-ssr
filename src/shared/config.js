@@ -1,3 +1,4 @@
+import { isLinux, isMac } from './env'
 const defaultConfig = {
   // 配置集合
   configs: [],
@@ -21,15 +22,22 @@ const defaultConfig = {
   serverSubscribes: [],
   // 是否开启http proxy
   httpProxyEnable: true,
-  // 默认快捷键
-  shortcut: {
+  // 全局快捷键
+  globalShortcuts: {
     toggleWindow: {
-      key: 'CommandOrControl+Shift+W',
-      enable: false
+      key: isLinux ? 'Ctrl+Shift+W' : '',
+      enable: isLinux
     },
+    switchSystemProxy: {
+      key: '',
+      enable: false
+    }
+  },
+  // 窗口快捷键
+  windowShortcuts: {
     toggleMenu: {
-      key: 'CommandOrControl+Shift+B',
-      enable: true
+      key: isLinux ? `${isMac ? 'Command' : 'Ctrl'}+Shift+B` : '',
+      enable: isLinux
     }
   },
   // http proxy端口
