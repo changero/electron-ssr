@@ -18,7 +18,7 @@
 <details>
   <summary>为什么我打开了应用但是没有代理成功？不能FQ？</summary>
   <p>首先，确定服务器配置中有可用的服务器并选中了其中的一项。其次，确认“启用系统代理”菜单已选中。再次，尝试勾选“系统代理设置”-“全局设置”，然后查看浏览器是否已被代理。最后，点击“帮助”-“查看日志”查看<code>ssr-libev</code>是否正常运行，日志中有没有报错，如有报错请先排错（比如端口占用）。</p>
-  <p>不是说浏览器打不开google就表示代理不成功！你的浏览器可能用了其它代理模式，所以请将浏览器的代理模式设为"使用系统代理"后再试。如何判断代理到底有没有成功？首先勾选上应用的http代理，然后点击任务栏菜单的<code>复制http代理设置<code>，然后在终端（Windows请使用Git base一类的支持Linux命令操作的终端）粘贴，粘贴后使用<code>curl https://google.com</code>命令查看运行结果，如果成功返回内容则表示代理成功，否则视为失败。</p>
+  <p>不是说浏览器打不开google就表示代理不成功！你的浏览器可能用了其它代理模式，所以请将浏览器的代理模式设为"使用系统代理"后再试。如何判断代理到底有没有成功？首先勾选上应用的http代理，然后点击任务栏菜单的<code>复制http代理设置</code>，然后在终端（Windows请使用Git base一类的支持Linux命令操作的终端）粘贴，粘贴后使用<code>curl https://google.com</code>命令查看运行结果，如果成功返回内容则表示代理成功，否则视为失败。</p>
 </details>
 
 <details>
@@ -49,6 +49,11 @@
 <details>
   <summary>为什么我点击切换系统代理模式却没有效果？</summary>
   [见已知bug](../README.md#已知Bug)
+</details>
+
+<details>	
+  <summary>错误日志Exception: libsodium not found</summary>	
+  <p>该错误是因为当前系统缺少libsodium库导致，Mac下使用<code>brew install libsodium</code>安装，Ubuntu可参考<a href="https://gist.github.com/jonathanpmartins/2510f38abee1e65c6d92">https://gist.github.com/jonathanpmartins/2510f38abee1e65c6d92</a>安装，Windows前往<a href="https://download.libsodium.org/libsodium/releases/">https://download.libsodium.org/libsodium/releases/</a>下载<code>libsodium-{version}-msvc.zip</code>文件并解压，复制解压目录中的<code>libsodium.dll</code>至<code>C:\windows\system32</code>目录（注意dll文件是64的还是32的）,其它系统请自行搜索。</p>	
 </details>
 
 <details>
